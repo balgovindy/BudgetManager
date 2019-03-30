@@ -13,32 +13,13 @@ $(function () {
     $('#amount').keypress(function (event) {
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if (keycode == '13') {
-            chrome.storage.sync.get(['total', 'limit', 'gst', 'discount'], function (budget) {
-                var newTotal = 0;
-                var amount = priceCalculator(+$('#amount').val(), +budget.gst, +budget.discount);
-                if (budget.total) {
-                    newTotal += parseInt(budget.total);
-                }
-                if (amount) {
-                    newTotal += +amount;
-                }
-                chrome.storage.sync.set({ 'total': newTotal }, function () {
-                    if (newTotal >= +budget.limit) {
-                        var notifObj = {
-                            type: "basic",
-                            iconUrl: "./../images/icon128.png",
-                            title: "Limit reached!",
-                            message: "Hey you have reached your limit"
-                        }
-                        chrome.notifications.create('limitNotify', notifObj)
-                    }
-                });
-
-                $('#total').text(newTotal);
-                $('#amount').val('');
-            });
+            updateView.call(this);
         }
     });
+
+    $('#addTotal').click(function(){
+        updateView()
+    })
 });
 
 function priceCalculator(amt, gst, discount) {
@@ -46,4 +27,31 @@ function priceCalculator(amt, gst, discount) {
     const gstAmt = costPrice * gst * 0.01;
     const disc = costPrice * discount * 0.01;
     return costPrice + gstAmt + disc;
+}
+
+function updateView() {
+    chrome.storage.sync.get(['total', 'limit', 'gst', 'discount'], function (budget) {
+        var newTotal = 0;
+        var amount = priceCalculator(+$('#amount').val(), +budget.gst, +budget.discount);
+        if (budget.total) {
+            newTotal += parseInt(budget.total);
+        }
+        if (amount) {
+            newTotal += +amount;
+        }
+        chrome.storage.sync.set({ 'total': newTotal }, function () {
+            if (newTotal >= +budget.limit) {
+                var notifObj = {
+                    type: "basic",
+                    iconUrl: "./../images/icon128.png",
+                    title: "Limit reached!",
+                    message: "Hey you have reached your limit"
+                }
+                chrome.notifications.create('limitNotify', notifObj)
+            }
+        });
+
+        $('#total').text(newTotal);
+        $('#amount').val('');
+    });
 }
