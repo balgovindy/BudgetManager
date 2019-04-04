@@ -1,4 +1,36 @@
+/*Popup.html*/
 #wrapper{
-    width: 191px;
-    background: khaki
+    width: 250px;
+}
+
+.title {
+	margin-top: 10px;
+}
+
+.addAmount{
+	border: 0
+}
+
+input[type=text] {
+    padding:50px; 
+    border:0; 
+}
+
+/*Options.html*/
+
+#settings {
+		-webkit-animation: rotation 3s infinite linear;
+}
+
+.centerHeader {
+
+}
+
+@-webkit-keyframes rotation {
+		from {
+				-webkit-transform: rotate(0deg);
+		}
+		to {
+				-webkit-transform: rotate(360deg);
+		}
 }
