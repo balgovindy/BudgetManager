@@ -3,6 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- External Styles -->
+    <link rel="stylesheet" href="./../style/style.css">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Budget manager options</title>
@@ -11,11 +20,50 @@
 </head>
 
 <body>
-    <h1>Budget manager Option</h1>
-    <h2>LIMIT:<input type="text" id="limit"></h2>
-    <h2>GST:<input id="gst" type="text" value="5"></h2>
-    <h2>DISCOUNT:<input id="discount" type="text" value="0"></h2>
-    <input type="submit" id="ready" value="READY!!!">
+    <div class = "d-flex flex-column">
+        <div class="d-flex container justify-content-center">
+            <h1 class="display-1">Budget Manager</h1>
+        </div>
+        <div class= "d-flex justify-content-center container">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header centerHeader">
+                    <img id="settings" src="../images/settings.png"> &nbsp; Settings        
+                </div>
+                <div class="card-body">
+                    <form>
+                      <div class="form-group">
+                        <label>Limit</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="basic-addon1"><i class="fas fa-rupee-sign"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="limit"  aria-describedby="emailHelp" placeholder="Enter Amount in Rs">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label>GST</label>
+                        <div class = "input-group">
+                            <div class = "input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-percent"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="gst"  placeholder="Enter GST in %">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label>Discount</label>
+                        <div class = "input-group">
+                            <div class = "input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-percent"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="discount" placeholder="Enter Discount in %">
+                        </div>
+                      </div>
+                      <button type="submit" id="ready" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

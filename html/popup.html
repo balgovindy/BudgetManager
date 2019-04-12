@@ -4,6 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="./../lib/jquery-3.3.1.min.js"></script>
     <script src="./../js/popup.js"></script>
@@ -12,7 +18,34 @@
 </head>
 
 <body>
-    <div id="wrapper">
+    <div class="popupContainer">
+        <div class="heading">
+            Budget Manager
+            <div class="line"></div>
+        </div>
+        <div class="upperText">
+            You have spent
+            <div class="symbol">
+                <img id="upperImg" src="../rupees.svg" height="26px" alt="Kiwi standing on oval"><span id="total"></span> 
+            </div>
+        </div>
+        <div class="progressBarDiv">
+            <div class="progressBar"> </div>
+        </div>
+        <div class="lowerText">
+            Limit
+            <span id="limit"></span>
+        </div>
+        <div class="add">
+            <img id="lowerImg" src="../rupees.svg" height="26px" alt="Kiwi standing on oval">
+            <input type="text" name="amount" id="amount" placeholder="0" >
+        </div>
+        <div class="buttons">
+            <button class="btn addButton" type="submit" id="addTotal">Add</button>
+            <button class="btn resetButton" type="submit" id="resetTotal">Reset</button>
+        </div>
+    </div>
+    <!-- <div id="wrapper">
         <h1>Budget Manager</h1>
         <h2>Total spend:<span id="total">0</span></h2>
         <h2>Limit:<span id="limit"></span></h2>
@@ -20,7 +53,8 @@
         <input type="text" id="amount">
         <input type="submit" value="ADD" id="addTotal">
         <input type="submit" value="RESET" id="resetTotal">
-    </div>
+    </div> -->
 </body>
+
 
 </html>

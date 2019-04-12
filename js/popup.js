@@ -29,6 +29,7 @@ function priceCalculator(amt, gst, discount) {
     return costPrice + gstAmt + disc;
 }
 
+
 function updateView() {
     chrome.storage.sync.get(['total', 'limit', 'gst', 'discount'], function (budget) {
         var newTotal = 0;
@@ -50,7 +51,6 @@ function updateView() {
                 chrome.notifications.create('limitNotify', notifObj)
             }
         });
-
         $('#total').text(newTotal);
         $('#amount').val('');
     });
