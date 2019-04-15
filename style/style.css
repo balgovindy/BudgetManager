@@ -1,5 +1,8 @@
 /*Popup.html*/
-
+@font-face {
+    font-family: fa-solid-900;
+    src: url(./../font/fa-solid-900.woff2);
+  }
 .popupContainer {
 	width: 250px;
 	height: 250px;
@@ -83,7 +86,7 @@
 }
 
 .progressBar {
-	width: 140px;
+	width: 0px;
 	height: 6px;
 	background-color: #278fdd;
 	border-radius: 15px;
@@ -120,8 +123,8 @@
 
 #amount {
 	font-size: 25px;
-	width: 23px;
-	max-width: 70px;
+	width: 170px;
+	max-width: 170px;
 	transition: width 0.25s;
 	background-color: #f3f9da;
 	-webkit-appearance: caret;

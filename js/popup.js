@@ -17,7 +17,7 @@ $(function () {
         }
     });
 
-    $('#addTotal').click(function(){
+    $('#addTotal').click(function () {
         updateView()
     })
 });
@@ -26,7 +26,7 @@ function priceCalculator(amt, gst, discount) {
     const costPrice = amt;
     const gstAmt = costPrice * gst * 0.01;
     const disc = costPrice * discount * 0.01;
-    return costPrice + gstAmt + disc;
+    return (costPrice + gstAmt) - disc;
 }
 
 
@@ -35,11 +35,16 @@ function updateView() {
         var newTotal = 0;
         var amount = priceCalculator(+$('#amount').val(), +budget.gst, +budget.discount);
         if (budget.total) {
-            newTotal += parseInt(budget.total);
+            newTotal += +parseInt(budget.total).toFixed(2);
         }
         if (amount) {
             newTotal += +amount;
         }
+
+        $('.progressBar').css({
+            width: `${currentProgress(newTotal, budget.limit)}%`
+        })
+        
         chrome.storage.sync.set({ 'total': newTotal }, function () {
             if (newTotal >= +budget.limit) {
                 var notifObj = {
@@ -54,4 +59,8 @@ function updateView() {
         $('#total').text(newTotal);
         $('#amount').val('');
     });
+}
+
+function currentProgress(curAmt, limit) {
+    return (curAmt / limit) * 100 > 100 ? 100 : (curAmt / limit) * 100;
 }
