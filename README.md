@@ -21,6 +21,7 @@ _Instructions_ are pretty simple:
 - Enter your budget amount
 - You can either use  **Enter key** or **ADD** button for next entries.
 <p align="center">
-  <img  alt="my budget" src="./SS/ss1.png">
+<br/>
+<img  alt="my budget" src="./SS/ss1.png">
 </p>
 :construction: **Might add more updates in future**  :construction:
