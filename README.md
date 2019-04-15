@@ -15,7 +15,12 @@ _Instructions_ are pretty simple:
 - On top right corner you can see the extension Icon.
 - Right Click on it select options.
 - Fill setting of your choice and submit .
+<p align="center">
+  <img  alt="my budget" src="./SS/ss2.png">
+</p>
 - Enter your budget amount
 - You can either use  **Enter key** or **ADD** button for next entries.
-
+<p align="center">
+  <img  alt="my budget" src="./SS/ss1.png">
+</p>
 :construction: **Might add more updates in future**  :construction:
