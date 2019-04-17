@@ -7,7 +7,10 @@ $(function () {
         chrome.storage.sync.set({
             'total': 0
         });
-        $('#total').text(0)
+        $('#total').text(0);
+        $('.progressBar').css({
+            width: `0%`
+        })
     })
 
     $('#amount').keypress(function (event) {
