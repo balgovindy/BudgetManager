@@ -1,11 +1,16 @@
 $(function () {
-    chrome.storage.sync.get(['total', 'limit'], function (budget) {
+    chrome.storage.sync.get(['total', 'limit', 'percentage'], function (budget) {
         $('#total').text(budget.total);
         $('#limit').text(budget.limit);
+        console.log(budget.percentage)
+        $('.progressBar').css({
+            width: `${budget.percentage}%`
+        })
     });
     $('#resetTotal').click(function () {
         chrome.storage.sync.set({
-            'total': 0
+            'total': 0,
+            'percentage': 0
         });
         $('#total').text(0);
         $('.progressBar').css({
@@ -34,7 +39,7 @@ function priceCalculator(amt, gst, discount) {
 
 
 function updateView() {
-    chrome.storage.sync.get(['total', 'limit', 'gst', 'discount'], function (budget) {
+    chrome.storage.sync.get(['total', 'limit', 'gst', 'discount', 'percentage'], function (budget) {
         var newTotal = 0;
         var amount = priceCalculator(+$('#amount').val(), +budget.gst, +budget.discount);
         if (budget.total) {
@@ -43,12 +48,8 @@ function updateView() {
         if (amount) {
             newTotal += +amount;
         }
-
-        $('.progressBar').css({
-            width: `${currentProgress(newTotal, budget.limit)}%`
-        })
-        
-        chrome.storage.sync.set({ 'total': newTotal }, function () {
+        var cprgcent = currentProgress(newTotal, budget.limit)
+        chrome.storage.sync.set({ 'total': newTotal, 'percentage': cprgcent }, function () {
             if (newTotal >= +budget.limit) {
                 var notifObj = {
                     type: "basic",
@@ -61,6 +62,9 @@ function updateView() {
         });
         $('#total').text(newTotal);
         $('#amount').val('');
+        $('.progressBar').css({
+            width: `${cprgcent}%`
+        })
     });
 }
 
