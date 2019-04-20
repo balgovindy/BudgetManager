@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Budget Manager",
     "version": "1.0",
-    "description": "track overall spending",
+    "description": "Track overall spending",
     "icons": {
         "128": "images/icon128.png",
         "48": "images/icon48.png",
