@@ -127,7 +127,7 @@
 	max-width: 170px;
 	transition: width 0.25s;
 	background-color: #f3f9da;
-	-webkit-appearance: caret;
+	border: tan;
 }
 
 
@@ -147,9 +147,6 @@
 		-webkit-animation: rotation 3s infinite linear;
 }
 
-.centerHeader {
-
-}
 
 @-webkit-keyframes rotation {
 		from {
